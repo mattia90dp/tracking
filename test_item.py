@@ -6,7 +6,7 @@ nItems = 10
 items = dict()
 
 for i in range(0, 10):
-  new_item = Item(i)
+  new_item = GItem(i)
   items[i] = new_item
 
 

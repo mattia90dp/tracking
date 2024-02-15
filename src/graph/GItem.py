@@ -1,4 +1,4 @@
-class Item:
+class GItem:
   def __init__(self, id):
     self.id = id      # Unique ID for item
     self.p = dict()   # List of Parent(s) item(s)
