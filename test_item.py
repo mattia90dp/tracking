@@ -1,4 +1,5 @@
-from src.graph.GItem import *
+from src.graph.GItem    import *
+from src.tk_view.TkView import  *
 
 import random
 
@@ -51,3 +52,6 @@ for i in range(0, L):
   p = items[i].get_path_top_down_p()
   for ii in p:
     items[i].print_path(ii)
+
+
+view = TkView()
