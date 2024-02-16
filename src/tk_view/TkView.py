@@ -81,6 +81,9 @@ class TkDragAndDropTxt(TkDragAndDrop):
     self.obj = self.root.create_text(self.coord.x0, self.coord.y0, text = "TEST", fill = "black")
   def move(self, x, y, e):
     self.root.move(self.obj, x, y)
+  def set_txt(self, var):
+    self.root.delete(self.obj)
+    self.obj = self.root.create_text(self.coord.x0, self.coord.y0, text = var, fill = "black")
 
 class TkDragAndDropObject(TkDragAndDrop):
   def __init__(self, root):
@@ -104,6 +107,7 @@ class GBox():
     self.rectangle.detect_focus(e)
   def clean_focus(self):
     self.rectangle.clean_focus()
+
 
 class TkWindow():
   def __init__(self, root):
@@ -147,8 +151,11 @@ class TkWindow():
     self.x, self.y = event.x, event.y
     for k,e in self.all_elem.items():
       e.detect_focus(event)
-      if e.get_focus:
+      if e.get_focus():
         print("detected focus")
+        e.rectangle.coord.print()
+        dbg = "E [ " + str(self.x) + " : " + str(self.y) + " ]"
+        print(dbg) 
         return
     pass
   def on_react_move(self, event):
@@ -173,9 +180,9 @@ class TkView():
 
   def run(self):
     for k, e in self.window.all_elem.items():
-      a = random.randint(20, 150)
-      b = random.randint(20, 150)
+      a = random.randint(20, 500)
+      b = random.randint(20, 500)
       dbg = str(a) + " : " + str(b)
       print(dbg)
-    #  e.move(a, b, None)
+      e.move(a, b, None)
     self.root.mainloop()

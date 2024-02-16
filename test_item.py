@@ -35,6 +35,8 @@ for i in range(0, len(A)):
   add(A[i], B[i])
   elA = view.window.add_gbox(A[i])
   elB = view.window.add_gbox(B[i])
+  elA.txt.set_txt(str(A[i]))
+  elB.txt.set_txt(str(B[i]))   
   elC = view.window.add_connector(elA, elB)
 '''
 add(0, 4)
