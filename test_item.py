@@ -26,6 +26,17 @@ def add(a, b):
   print(dbg)
   items[a].add_c(items[b])
 
+A = [0, 0, 1, 2, 3, 4, 4, 5, 5, 6]
+B = [4, 5, 6, 6, 5, 7, 9, 8, 9, 9]
+
+view = TkView()
+
+for i in range(0, len(A)):
+  add(A[i], B[i])
+  elA = view.window.add_gbox(A[i])
+  elB = view.window.add_gbox(B[i])
+  elC = view.window.add_connector(elA, elB)
+'''
 add(0, 4)
 add(0, 5)
 add(1, 6)
@@ -37,7 +48,7 @@ add(4, 9)
 add(5, 8)
 add(5, 9)
 add(6, 9)
-
+'''
 divider = "#" * 50
 for i in range(0, L):
   s = divider + " CHILD(s) " + str(i)
@@ -53,5 +64,4 @@ for i in range(0, L):
   for ii in p:
     items[i].print_path(ii)
 
-
-view = TkView()
+view.run()
